@@ -32,7 +32,6 @@ def datasets():
 @click.option("-f", "--from-json", type=click.File("r"), help="Path to the json file.")
 def compare(from_json):
     "Compares datasets lazily by checking their metadata."
-
     from .bq.datasets import compare
 
     compare(from_json)
