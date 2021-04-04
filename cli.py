@@ -1,6 +1,11 @@
-import click
+# Standard library
 import logging
 
+# Third party
+import click
+
+# Local
+from .bq.datasets import compare
 
 @click.group()
 @click.option(
@@ -32,8 +37,6 @@ def datasets():
 @click.option("-f", "--from-json", type=click.File("r"), help="Path to the json file.")
 def compare(from_json):
     "Compares datasets lazily by checking their metadata."
-    from .bq.datasets import compare
-
     compare(from_json)
 
 
