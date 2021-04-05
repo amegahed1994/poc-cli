@@ -1,11 +1,8 @@
-# Standard library
 import json
 import logging
 
-# Third party
 import click
 
-# Local
 from bq.datasets.compare import compare as bq_datasets_compare
 
 

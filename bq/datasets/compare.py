@@ -1,10 +1,7 @@
-# Standard library
 import logging
 
-# Third party
 from google.cloud import bigquery
 
-# Logger setup
 logger = logging.getLogger(__name__)
 
 
