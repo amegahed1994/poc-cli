@@ -70,6 +70,3 @@ def bqts():
 def create(from_json, to_json):
     "Creates transfer configurations using params loaded from a file."
     to_json.write(from_json.read())
-
-
-root()()

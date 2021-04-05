@@ -8,13 +8,13 @@ from google.cloud import bigquery
 logger = logging.getLogger(__name__)
 
 
-def list_tables(dataset_id, client=bigquery.Client()):
-    tables = client.list_tables(dataset_id)
+def list_tables(dataset_id):
+    tables = bigquery.Client().list_tables(dataset_id)
 
     return {table.table_id for table in tables}
 
 
-def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
+def compare(src_dataset_id, dest_dataset_id):
     equals = True  # init
 
     src_tables = list_tables(src_dataset_id)
@@ -27,6 +27,8 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
         )
 
     tables_intersection = src_tables.intersection(dest_tables)
+
+    client = bigquery.Client()
 
     for table in tables_intersection:
         src_table = client.get_table(f"{src_dataset_id}.{table}")
@@ -48,8 +50,3 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
             )
 
     return equals
-
-
-if __name__ == "__main__":
-
-    compare("myproject.mydataset", "myproject.mydataset")
