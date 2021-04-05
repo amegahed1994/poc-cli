@@ -44,4 +44,4 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
     logging.info(f"Scan completed with the following result: Datasets are equalivalent == {equal}")
         
 if __name__ == "__main__":
-    compare("sourceproject.mydataset2", "sourceproject.mydataset2")
+    compare("sourceproject.mydataset", "sourceproject.mydataset")
