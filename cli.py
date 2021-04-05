@@ -8,9 +8,6 @@ import click
 # Local
 from bq.datasets.compare import compare as bq_datasets_compare
 
-# Logger setup
-# logger = logging.getLogger(__name__)
-
 
 @click.group()
 @click.option(
