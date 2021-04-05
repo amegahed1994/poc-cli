@@ -26,7 +26,6 @@ def compare(src_dataset_id, dest_dataset_id):
     tables_intersection = src_tables.intersection(dest_tables)
 
     client = bigquery.Client()
-
     for table in tables_intersection:
         src_table = client.get_table(f"{src_dataset_id}.{table}")
         dest_table = client.get_table(f"{dest_dataset_id}.{table}")
