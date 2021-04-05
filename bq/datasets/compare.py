@@ -15,12 +15,11 @@ def list_tables(dataset_id, client=bigquery.Client()):
 
 
 def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
-    equals = True # init
-    
+    equals = True  # init
+
     src_tables = list_tables(src_dataset_id)
     dest_tables = list_tables(dest_dataset_id)
 
-  
     if src_tables.symmetric_difference(dest_tables):
         equals = False
         logger.info(
@@ -37,9 +36,7 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
             src_table.num_rows == dest_table.num_rows
             and src_table.num_bytes == dest_table.num_bytes
         ):
-            logger.debug(
-                f"{src_dataset_id}.{table} equals {dest_dataset_id}.{table}"
-            )
+            logger.debug(f"{src_dataset_id}.{table} equals {dest_dataset_id}.{table}")
         else:
             equals = False
             logger.info(
@@ -54,5 +51,5 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
 
 
 if __name__ == "__main__":
-    
+
     compare("myproject.mydataset", "myproject.mydataset")
