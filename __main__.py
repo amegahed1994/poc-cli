@@ -1,4 +1,4 @@
-from cli import root
+from src.cli import root
 
 
 def main():

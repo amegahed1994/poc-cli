@@ -3,7 +3,7 @@ import logging
 
 import click
 
-from bq.datasets.compare import compare as bq_datasets_compare
+from .scripts.bq.datasets.compare import compare as bq_datasets_compare
 
 
 @click.group()
