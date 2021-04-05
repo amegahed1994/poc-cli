@@ -19,6 +19,7 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
     dest_tables = list_tables(dest_dataset_id)
 
     equal = True
+
     if src_tables.symmetric_difference(dest_tables):
         logger.info(
             f"These datasets contain the following symmetric difference: {src_tables ^ dest_tables}"
