@@ -11,6 +11,7 @@ from bq.datasets.compare import compare as bq_datasets_compare
 # Logger setup
 # logger = logging.getLogger(__name__)
 
+
 @click.group()
 @click.option(
     "--log-level",
@@ -51,6 +52,7 @@ def compare(from_json):
         result = bq_datasets_compare(src_dataset_id, dest_dataset_id)
         click.echo(f"{src_dataset_id} == {dest_dataset_id} resolves to: {result}")
 
+
 @root.group()
 def bqts():
     "Scripts that generates bqts transfer-configs to an output file."
@@ -66,11 +68,7 @@ def bqts():
     help="Path to the json file.",
 )
 @click.option(
-    "-f", 
-    "--to-json", 
-    type=click.File("w"), 
-    default="-", 
-    help="Path to the json file."
+    "-f", "--to-json", type=click.File("w"), default="-", help="Path to the json file."
 )
 def create(from_json, to_json):
     "Creates transfer configurations using params loaded from a file."
