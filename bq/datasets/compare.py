@@ -15,7 +15,7 @@ def list_tables(dataset_id, client=bigquery.Client()):
 
 
 def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
-    equals = True
+    equals = True # init
     
     src_tables = list_tables(src_dataset_id)
     dest_tables = list_tables(dest_dataset_id)
@@ -54,4 +54,5 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
 
 
 if __name__ == "__main__":
+    
     compare("myproject.mydataset", "myproject.mydataset")
