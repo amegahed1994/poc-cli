@@ -46,7 +46,7 @@ def compare(src_dataset_id, dest_dataset_id):
             )
 
             logger.info(
-                f"Stats: the former contains {src_table.num_rows} rows totalling {src_table.num_bytes} as compared to {src_table.num_rows} rows & {src_table.num_bytes}."
+                f"Stats: the former contains {src_table.num_rows} rows totalling {src_table.num_bytes} bytes as compared to {dest_table.num_rows} rows & {dest_table.num_bytes} bytes."
             )
 
     return equals

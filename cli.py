@@ -37,6 +37,7 @@ def datasets():
 @click.option(
     "-f",
     "--from-json",
+    required=True,
     type=click.File("r"),
     help="Path to the input json file.",
 )
