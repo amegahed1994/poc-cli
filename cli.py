@@ -1,11 +1,18 @@
 # Standard library
+import json
 import logging
 
 # Third party
 import click
 
 # Local
-from .bq.datasets import compare
+from bq.datasets.compare import compare as bq_datasets_compare
+
+# Logger setup
+logger = logging.getLogger("mvt-cli")
+
+console_handler = logging.StreamHandler()
+logger.addHandler(console_handler)
 
 @click.group()
 @click.option(
@@ -34,10 +41,20 @@ def datasets():
 
 
 @datasets.command()
-@click.option("-f", "--from-json", type=click.File("r"), help="Path to the json file.")
+@click.option(
+    "-f",
+    "--from-json",
+    type=click.File("r"),
+    help="Path to the input json file.",
+)
 def compare(from_json):
     "Compares datasets lazily by checking their metadata."
-    compare(from_json)
+
+    for dataset in json.load(from_json):
+        src_dataset_id = f"{dataset[src_project_id]}.{dataset[src_dataset_name]}"
+        dest_dataset_id = f"{dataset[dest_project_id]}.{dataset[dest_dataset_name]}"
+        bq_datasets_compare(src_dataset_id, dest_dataset_id)
+    print("thanks")
 
 
 @root.group()
@@ -60,3 +77,6 @@ def bqts():
 def create(from_json, to_json):
     "Creates transfer configurations using params loaded from a file."
     to_json.write(from_json.read())
+
+
+root()()
