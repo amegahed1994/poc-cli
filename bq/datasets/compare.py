@@ -39,14 +39,18 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
                 f"{src_dataset_id}.{table} is equal to {dest_dataset_id}.{table}"
             )
         else:
-            logger
             logger.info(
-                f"{src_dataset_id}.{table} is NOT equal to {dest_dataset_id}.{table}. The former contains {src_table.num_rows} rows totalling {src_table.num_bytes} as compared to {src_table.num_rows} rows & {src_table.num_bytes}."
+                f"{src_dataset_id}.{table} is NOT equal to {dest_dataset_id}.{table}."
             )
+
+            logger.info(
+                f"Stats: the former contains {src_table.num_rows} rows totalling {src_table.num_bytes} as compared to {src_table.num_rows} rows & {src_table.num_bytes}."
+            )
+
             equal = False
 
     return equal
 
 
 if __name__ == "__main__":
-    compare("sourceproject.mydataset", "sourceproject.mydataset")
+    compare("myproject.mydataset", "myproject.mydataset")
