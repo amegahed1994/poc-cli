@@ -14,6 +14,7 @@ logger = logging.getLogger("mvt-cli")
 console_handler = logging.StreamHandler()
 logger.addHandler(console_handler)
 
+
 @click.group()
 @click.option(
     "--log-level",
@@ -24,9 +25,7 @@ logger.addHandler(console_handler)
 )
 def root(log_level):
     "Goal of this command-line interface is to centralize mmvt's scripts."
-    pass
     logging.basicConfig(level=log_level)
-    logging.debug("ERROR FROM ROOT")
 
 
 @root.group()
@@ -72,7 +71,11 @@ def bqts():
     help="Path to the json file.",
 )
 @click.option(
-    "-f", "--to-json", type=click.File("w"), default="-", help="Path to the json file."
+    "-f", 
+    "--to-json", 
+    type=click.File("w"), 
+    default="-", 
+    help="Path to the json file."
 )
 def create(from_json, to_json):
     "Creates transfer configurations using params loaded from a file."
