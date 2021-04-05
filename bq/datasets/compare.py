@@ -37,8 +37,7 @@ def compare(src_dataset_id, dest_dataset_id, client=bigquery.Client()):
             )
         else:
             logging.debug(
-                f"{src_dataset_id}.{table} is NOT equal to {dest_dataset_id}.{table}.
-                The former contains {src_table.num_rows} rows totalling {src_table.num_bytes} as compared to {src_table.num_rows} rows & {src_table.num_bytes}."
+                f"{src_dataset_id}.{table} is NOT equal to {dest_dataset_id}.{table}. The former contains {src_table.num_rows} rows totalling {src_table.num_bytes} as compared to {src_table.num_rows} rows & {src_table.num_bytes}."
             )
             equal = False
     
