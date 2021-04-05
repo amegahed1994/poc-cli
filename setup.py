@@ -7,6 +7,6 @@ setup(
     install_requires=["click", "google-cloud-bigquery"],
     entry_points="""
         [console_scripts]
-        mvt=__main__:main
+        mvt=__init__:main
     """,
 )
