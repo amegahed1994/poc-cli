@@ -5,7 +5,7 @@ from google.cloud import bigquery
 logger = logging.getLogger(__name__)
 
 
-def tables_set(dataset_id):
+def list_tables(dataset_id):
     tables = bigquery.Client().list_tables(dataset_id)
 
     return {table.table_id for table in tables}
@@ -14,8 +14,8 @@ def tables_set(dataset_id):
 def compare(src_dataset_id, dest_dataset_id):
     equals = True  # init
 
-    src_tables = tables_set(src_dataset_id)
-    dest_tables = tables_set(dest_dataset_id)
+    src_tables = list_tables(src_dataset_id)
+    dest_tables = list_tables(dest_dataset_id)
 
     if src_tables.symmetric_difference(dest_tables):
         equals = False
