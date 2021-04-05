@@ -1,0 +1,25 @@
+DEBUG:google.cloud.bigquery.opentelemetry_tracing:This service is instrumented using OpenTelemetry. OpenTelemetry could not be imported; please add opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+DEBUG:urllib3.util.retry:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG:google.auth.transport.requests:Making request: GET http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/?recursive=true
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 169.254.169.254:80
+DEBUG:urllib3.connectionpool:http://169.254.169.254:80 "GET /computeMetadata/v1/instance/service-accounts/default/?recursive=true HTTP/1.1" 200 None
+DEBUG:google.auth.transport.requests:Making request: GET http://169.254.169.254/computeMetadata/v1/instance/service-accounts/owner@megahed.ca/token?scopes=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fbigquery%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform
+DEBUG:urllib3.connectionpool:Resetting dropped connection: 169.254.169.254
+DEBUG:urllib3.connectionpool:http://169.254.169.254:80 "GET /computeMetadata/v1/instance/service-accounts/owner@megahed.ca/token?scopes=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fbigquery%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): bigquery.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/sourceproject/datasets/mydataset/tables?prettyPrint=false HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/lithe-record-303112/datasets/mydataset/tables?prettyPrint=false HTTP/1.1" 200 None
+DEBUG:urllib3.util.retry:Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG:google.auth.transport.requests:Making request: GET http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/?recursive=true
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 169.254.169.254:80
+DEBUG:urllib3.connectionpool:http://169.254.169.254:80 "GET /computeMetadata/v1/instance/service-accounts/default/?recursive=true HTTP/1.1" 200 None
+DEBUG:google.auth.transport.requests:Making request: GET http://169.254.169.254/computeMetadata/v1/instance/service-accounts/owner@megahed.ca/token?scopes=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fbigquery%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform
+DEBUG:urllib3.connectionpool:Resetting dropped connection: 169.254.169.254
+DEBUG:urllib3.connectionpool:http://169.254.169.254:80 "GET /computeMetadata/v1/instance/service-accounts/owner@megahed.ca/token?scopes=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fbigquery%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): bigquery.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/sourceproject/datasets/mydataset/tables/mytable?prettyPrint=false HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/lithe-record-303112/datasets/mydataset/tables/mytable?prettyPrint=false HTTP/1.1" 200 None
+DEBUG:root:sourceproject.mydataset.mytable is equal to lithe-record-303112.mydataset.mytable
+DEBUG:urllib3.connectionpool:https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/sourceproject/datasets/mydataset2/tables?prettyPrint=false HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/lithe-record-303112/datasets/mydataset2/tables?prettyPrint=false HTTP/1.1" 200 None
+INFO:root:These datasets contain the following symmetric difference: {'mytable', 'mytable2'}

@@ -9,11 +9,7 @@ import click
 from bq.datasets.compare import compare as bq_datasets_compare
 
 # Logger setup
-logger = logging.getLogger("mvt-cli")
-
-console_handler = logging.StreamHandler()
-logger.addHandler(console_handler)
-
+# logger = logging.getLogger(__name__)
 
 @click.group()
 @click.option(
@@ -50,11 +46,10 @@ def compare(from_json):
     "Compares datasets lazily by checking their metadata."
 
     for dataset in json.load(from_json):
-        src_dataset_id = f"{dataset[src_project_id]}.{dataset[src_dataset_name]}"
-        dest_dataset_id = f"{dataset[dest_project_id]}.{dataset[dest_dataset_name]}"
-        bq_datasets_compare(src_dataset_id, dest_dataset_id)
-    print("thanks")
-
+        src_dataset_id = f"{dataset['src_project_id']}.{dataset['src_dataset_name']}"
+        dest_dataset_id = f"{dataset['dest_project_id']}.{dataset['dest_dataset_name']}"
+        result = bq_datasets_compare(src_dataset_id, dest_dataset_id)
+        click.echo(f"{src_dataset_id} == {dest_dataset_id} resolves to: {result}")
 
 @root.group()
 def bqts():
