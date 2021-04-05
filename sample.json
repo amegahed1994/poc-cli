@@ -1,0 +1,14 @@
+[
+   {
+      "src_dataset_name":"mydataset",
+      "src_project_id":"sourceproject",
+      "dest_dataset_name":"mydataset",
+      "dest_project_id":"lithe-record-303112"
+   },
+   {
+      "src_dataset_name":"mydataset2",
+      "src_project_id":"sourceproject",
+      "dest_dataset_name":"mydataset2",
+      "dest_project_id":"lithe-record-303112"
+   }
+]
